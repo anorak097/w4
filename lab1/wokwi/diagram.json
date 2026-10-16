@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-ir-receiver", "id": "ir1", "top": -126.15, "left": 123.02, "attrs": {} },
+    { "type": "wokwi-ir-remote", "id": "remote1", "top": -48, "left": 211.2, "attrs": {} }
+  ],
+  "connections": [
+    [ "ir1:VCC", "uno:5V", "red", [ "v192", "h9.6" ] ],
+    [ "ir1:GND", "uno:GND.2", "black", [ "v201.6", "h28.8" ] ],
+    [ "ir1:DAT", "uno:9", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}

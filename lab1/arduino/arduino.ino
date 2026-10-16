@@ -16,16 +16,16 @@ byte  SEVEN_SEGMENT_DIGITAL[10][7] = {
 };
 
 unsigned long BUTTON_CODES[] = {
-    0xE619FF00,
-    0xBA45FF00,
-    0xB946FF00,
-    0xB847FF00,
-    0xBB44FF00,
-    0xBF40FF00,
-    0xBC43FF00,
-    0xF807FF00,
-    0xEA15FF00,
-    0xF609FF00,
+    0x9768FF00,
+    0xCF30FF00,
+    0xE718FF00,
+    0x857AFF00,
+    0xEF10FF00,
+    0xC738FF00,
+    0xA55AFF00,
+    0xBD42FF00,
+    0xB54AFF00,
+    0xAD52FF00,
 };
 
 void displayDigit(int digit) {
@@ -41,6 +41,10 @@ void clearDigit() {
 }
 
 void setup(){
+    for (int i = 0; i < 7; i++) {
+        pinMode(SEVEN_SEGMENT_PINS[i], OUTPUT);
+    }
+    
     IrReceiver.begin(9);
     Serial.begin(115200);
 }
@@ -49,6 +53,23 @@ void loop(){
     if (IrReceiver.decode()){
         unsigned long code = IrReceiver.decodedIRData.decodedRawData;
         Serial.println(code, HEX);
+
+        bool found = 0;
+
+        for (int i = 0; i < 10; i++){
+            if (code == BUTTON_CODES[i]){
+                displayDigit(i);
+                Serial.print("the button is: ");
+                Serial.println(i);
+                found = 1;
+                break;
+            }
+        }
+
+        if (!found){
+            clearDigit();
+        }
+
         IrReceiver.resume();
     }
 }
