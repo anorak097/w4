@@ -1,0 +1,35 @@
+{
+  "workspace": {
+    "blocks": {
+      "languageVersion": 0,
+      "blocks": [
+        {
+          "type": "arduino_setup_loop",
+          "id": "rzdhOg%k:e+|qLD8?ahq",
+          "x": -149,
+          "y": 94,
+          "deletable": false,
+          "inputs": {
+            "SETUP": {
+              "block": {
+                "type": "servo_setup",
+                "id": "R1JKH1gq=}QI;1:ds@J0",
+                "fields": {
+                  "VAR": "myServo",
+                  "PIN": "9"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "variables": [
+      {
+        "name": "i",
+        "id": "0C)ib0}U6rLEO9~9!Gz%"
+      }
+    ]
+  },
+  "board": "uno"
+}
